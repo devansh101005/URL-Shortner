@@ -10,10 +10,11 @@ export const usersTable = pgTable("users", {
 
   salt:text().notNull(),
   password:text().notNull(),
-  
+
   createdAt:timestamp('created_at').defaultNow().notNull(),
   updatedAt:timestamp('created_at').defaultNow().notNull(),
 
 
   
 });
+
