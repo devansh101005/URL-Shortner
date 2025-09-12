@@ -20,6 +20,9 @@ importers:
       pg:
         specifier: ^8.16.3
         version: 8.16.3
+      zod:
+        specifier: ^4.1.8
+        version: 4.1.8
     devDependencies:
       '@types/express':
         specifier: ~4.17.23
@@ -853,6 +856,9 @@ packages:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
     engines: {node: '>=0.4'}
 
+  zod@4.1.8:
+    resolution: {integrity: sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ==}
+
 snapshots:
 
   '@drizzle-team/brocli@0.10.2': {}
@@ -1519,3 +1525,5 @@ snapshots:
   vary@1.1.2: {}
 
   xtend@4.0.2: {}
+
+  zod@4.1.8: {}
