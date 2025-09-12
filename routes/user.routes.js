@@ -2,7 +2,7 @@ import express from 'express';
 import {db} from '../db/index.js';
 import{usersTable} from '../models/index.js';
 import {eq} from 'drizzle-orm';
-import {randomBytes } from 'crypto';
+import {randomBytes,createHmac } from 'crypto';
 const router =express.Router();
 
 router.post('/signup',async (req,res) => {
@@ -19,10 +19,24 @@ router.post('/signup',async (req,res) => {
         return res.status(400)
     .json({error:`User with email4{email} already exist`});
 
-    const user =await 
+    const salt=randomBytes(256).toString('hex');
+    const hashedPassword=createHmac('sha256',salt).update(password).digest('hex');
 
-    if(!firstname)
-        return res.status(400).json({error:'firstname is required'})
+
+
+
+
+    const [user] =await db.insert(usersTable).values({
+        email,
+        firstname,
+        lastname,
+        salt,
+        password:hashedPassword,
+    }).returning({id:usersTable.id})
+
+
+    //if(!firstname)
+        return res.status(201).json({data:{userId:user.id}});
 })
 
 export default router;
