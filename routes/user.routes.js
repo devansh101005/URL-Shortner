@@ -6,6 +6,7 @@ import {usersTable} from '../models/index.js';
 import {signupPostRequestBodySchema,loginPostRequestBodySchema} from '../validation/request.validation.js';
 import {hashPasswordWithSalt} from '../utils/hash.js'
 import {getUserByEmail} from '../services/user.service.js'
+import {createUserToken} from '../utils/token.js'
 import jwt from 'jsonwebtoken'
 const router =express.Router();
 
